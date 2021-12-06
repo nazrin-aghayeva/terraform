@@ -48,13 +48,13 @@ resource "aws_security_group" "ssh" {
 resource "aws_instance" "db_mysql" {
   ami = "ami-01cc34ab2709337aa"
   instance_type = "t2.micro"
-  key_name = "my-key-pair"
+  key_name = "test23"
 
   tags = {
     Name = "mysql db"
   }
 
-  vpc_security_group_ids = [aws_security_group.db.id, aws_security_group.ssh.id, "sg-03f0afc9972bef360"]
+  vpc_security_group_ids = [aws_security_group.db.id, aws_security_group.ssh.id, "sg-032cc56067adbe558"]
 
   user_data_base64 = filebase64("user_data.sh")
 }

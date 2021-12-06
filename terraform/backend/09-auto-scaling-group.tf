@@ -13,7 +13,7 @@ resource "aws_autoscaling_group" "phonebook-app" {
 
   launch_template {
     id = aws_launch_template.phonebook-be.id
-    version = "$latest"
+    version = "$Latest"
   }
 
   tag {

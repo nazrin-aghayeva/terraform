@@ -3,11 +3,10 @@ resource "aws_lb" "public_alb" {
   internal = false
   load_balancer_type = "application"
 
-  security_groups = [aws_security_group.backend.id]
+  security_groups = [aws_security_group.private-security-group.id]
 
   subnets = [
-    "subnet-09f4880d072f09a92",
-    "subnet-0a7788d1472394ddc"
+   aws_subnet.private-subnet-1.id
   ]
 
   enable_deletion_protection = false
@@ -49,7 +48,7 @@ resource "aws_lb_listener_rule" "phonebook_app" {
 }
 
 resource "aws_lb_target_group" "tg-ph" {
-  vpc_id = "vpc-03d43e2e542b53e2e"
+  vpc_id = aws_vpc.vpc.id
   name     = "tg-app"
   port     = 80
   protocol = "HTTP"
