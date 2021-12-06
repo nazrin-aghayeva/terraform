@@ -8,7 +8,7 @@ usermod -aG docker ec2-user
 systemctl enable docker
 systemctl start docker
 
-git clone https://github.com/farid-najafov/se-step-project.git
+git clone https://github.com/nazrin-aghayeva/terraform.git
 
 cd se-step-project/phonebook
 
